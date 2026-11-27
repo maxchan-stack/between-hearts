@@ -1,0 +1,44 @@
+[
+  {
+    "id": "sprout",
+    "name": "自我覺察",
+    "motif": "萌芽",
+    "color": "#91A99A",
+    "art": "sprout"
+  },
+  {
+    "id": "tide",
+    "name": "情緒管理",
+    "motif": "潮汐",
+    "color": "#91ADBF",
+    "art": "waves"
+  },
+  {
+    "id": "sunlight",
+    "name": "社會覺察",
+    "motif": "日光",
+    "color": "#D8BA80",
+    "art": "sun"
+  },
+  {
+    "id": "bloom",
+    "name": "人際關係",
+    "motif": "花語",
+    "color": "#C79C9C",
+    "art": "flower"
+  },
+  {
+    "id": "fork",
+    "name": "選擇與責任",
+    "motif": "岔路",
+    "color": "#ACA2C5",
+    "art": "path"
+  },
+  {
+    "id": "hill",
+    "name": "挫折與成長",
+    "motif": "山丘",
+    "color": "#B5BA8C",
+    "art": "hills"
+  }
+]

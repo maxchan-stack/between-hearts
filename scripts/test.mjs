@@ -1,0 +1,4 @@
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+import {validate,deal,route} from '../domain.mjs';
+const cards=JSON.parse(await readFile(new URL('../data/cards.json',import.meta.url)));const dims=JSON.parse(await readFile(new URL('../data/dimensions.json',import.meta.url)));assert.deepEqual(validate(cards,dims),[]);for(const topic of [null,...dims.map(d=>d.id)]){let seen=[];let n=cards.filter(c=>!topic||c.dimension===topic).length;for(let i=0;i<n;i++){let x=deal(cards,topic,seen);assert.equal(x.reset,false);assert.equal(x.hand.length,Math.min(6,n-i));assert.ok(x.hand.every(c=>!seen.includes(c.id)));seen.push(x.hand[0].id)}assert.equal(deal(cards,topic,seen).reset,true)}assert.equal(route('#/card/12',dims,cards).id,12);assert.equal(route('#/draw/sprout',dims,cards).topic,'sprout');assert.equal(route('#/card/999',dims,cards).name,'intro');console.log('PASS data, non-repeat, routes');
