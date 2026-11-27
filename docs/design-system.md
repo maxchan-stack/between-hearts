@@ -6,3 +6,6 @@
 - Natural wrapping, scroll when necessary, no clipping or per-card fit-to-width.
 - Projection is separate, print uses physical units.
 - Acceptance: 320, 375, 390, 414, 430, 600, 768 widths; landscape, large text, iOS VoiceOver, Android TalkBack, airplane mode after cache install.
+
+
+V6.2 cover: organic blobs using each dimension color; fixed two-column grid; pressed state uses check and inset outline; 44 CSS px minimum target. Intro mantra replaces large instruction heading.
