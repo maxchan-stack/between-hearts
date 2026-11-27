@@ -1,4 +1,4 @@
-const CACHE='between-hearts-v6.2.0';const ASSETS=['./','./index.html','./styles.css?v=62','./app.mjs?v=62','./domain.mjs?v=62','./art.mjs?v=62','./data/cards.json?v=62','./data/dimensions.json?v=62','./icon.svg','./manifest.webmanifest'];
+const CACHE='between-hearts-v6.2.1';const ASSETS=['./','./index.html','./styles.css?v=621','./app.mjs?v=621','./domain.mjs?v=621','./art.mjs?v=621','./data/cards.json?v=621','./data/dimensions.json?v=621','./icon.svg','./manifest.webmanifest'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS))));
 self.addEventListener('message',e=>{if(e.data==='SKIP_WAITING')self.skipWaiting()});
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('between-hearts-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
