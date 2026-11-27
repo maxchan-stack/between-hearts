@@ -4,7 +4,7 @@
 @media(min-width:375px){:root{--gutter:1.25rem;--quote:1.625rem;--question:1.5rem;--action:1.1875rem}}
 @media(min-width:414px){:root{--gutter:1.5rem;--quote:1.75rem;--question:1.625rem;--action:1.25rem}}
 @media(min-width:600px){:root{--quote:2rem;--question:1.75rem;--action:1.375rem;--brand:2rem}}
-*{box-sizing:border-box}body{margin:0;background:#f3dfc9;color:var(--ink);font-family:var(--sans);line-height:1.6;isolation:isolate;-webkit-text-size-adjust:100%;text-size-adjust:100%}button{font:inherit;color:inherit;cursor:pointer;touch-action:manipulation;min-height:var(--tap)}button:disabled{opacity:.55;cursor:wait}button:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--brown);outline-offset:3px}[hidden]{display:none!important}h1,h2,p{margin:0}small{display:block}h2{font-size:var(--heading);font-weight:500;line-height:1.5}p{font-size:var(--body);line-height:1.75}
+*{box-sizing:border-box}body{margin:0;background:#f3dfc9;color:var(--ink);font-family:var(--sans);line-height:1.6;isolation:isolate;-webkit-text-size-adjust:100%;text-size-adjust:100%}button{font:inherit;color:inherit;cursor:pointer;touch-action:manipulation;min-height:var(--tap)}button:disabled{opacity:.55;cursor:wait}button:focus-visible,summary:focus-visible{outline:2px solid var(--brown);outline-offset:3px}[hidden]{display:none!important}h1,h2,p{margin:0}small{display:block}h2{font-size:var(--heading);font-weight:500;line-height:1.5}p{font-size:var(--body);line-height:1.75}
 .flow{position:fixed;inset:0;overflow:hidden;z-index:-1;background:linear-gradient(140deg,#fff0d8,#e6b49d);pointer-events:none}.flow i{position:absolute;inset:-22%;background:radial-gradient(ellipse at 30% 35%,#fff9e9 0%,transparent 49%),radial-gradient(ellipse at 70% 75%,#d88c7280,transparent 48%);animation:orbit 18s linear infinite;will-change:transform}@keyframes orbit{from{transform:rotate(0deg) translateX(9%) rotate(0deg)}to{transform:rotate(360deg) translateX(9%) rotate(-360deg)}}body.result .flow i,body.paused .flow i{animation-play-state:paused}
 main{width:100%;max-width:32rem;margin:auto;min-height:100svh;padding:max(1rem,env(safe-area-inset-top)) var(--gutter) max(1rem,env(safe-area-inset-bottom));display:flex;flex-direction:column}header{text-align:center;padding:.5rem 0 1.25rem}header h1{font:400 var(--brand)/1.4 var(--serif);letter-spacing:.18em}header small{font-size:var(--xs);letter-spacing:.06em;margin-top:.375rem;color:var(--muted)}section{flex:1;display:flex;flex-direction:column;justify-content:center;gap:var(--space);text-align:center;min-width:0}
 
@@ -32,7 +32,7 @@ main{width:100%;max-width:32rem;margin:auto;min-height:100svh;padding:max(1rem,e
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 @media print{@page{size:A4;margin:7mm}body{background:white;color:#222}body>main,.flow{display:none!important}.print-only{display:block}.print-sheet{display:grid;grid-template-columns:repeat(3,65mm);grid-template-rows:repeat(2,100mm);break-after:page}.print-sheet:last-child{break-after:auto}.print-card{height:100mm;width:65mm;border:1px solid #aaa;padding:6mm;display:flex;flex-direction:column;justify-content:center;gap:4mm;text-align:center;break-inside:avoid;print-color-adjust:exact;-webkit-print-color-adjust:exact}.print-card h2{font-size:17pt;font-weight:400}.print-card p{font-size:11pt}.print-card small{font-size:9pt}}
 
-/* V6.3: cover zones. Footer stays in normal flow; no fixed overlap with Safari toolbar. */
+/* V6.3.1: cover zones. Footer stays in normal flow; no fixed overlap with Safari toolbar. */
 body{background:#faf4e9}.flow{background:linear-gradient(145deg,#fffaf2 5%,#f7eddb 62%,#f2ded1)}.flow i{background:radial-gradient(ellipse at 30% 35%,#fffdf6 0%,transparent 48%),radial-gradient(ellipse at 70% 75%,#e7ba9b55,transparent 50%)}
 main{min-height:100svh;min-height:100dvh}
 header{padding:.55rem 0 .75rem}
@@ -66,3 +66,6 @@ header{padding:.55rem 0 .75rem}
 @media(max-height:700px){.cover-main{gap:.55rem;padding-bottom:.5rem}.topic{min-height:4.25rem}.cover-actions{padding-top:1.5rem;gap:.25rem}}
 @media(max-width:360px){.topic{padding:.65rem .4rem}.cover-actions .tools button{font-size:.8125rem}}
 @media print{.cover-actions{display:none!important}}
+
+/* Programmatic reading focus must not look like a decorative border. */
+[tabindex="-1"]:focus{outline:none} .cover-mantra{border:0;outline:0}

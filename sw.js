@@ -1,5 +1,6 @@
-const CACHE='between-hearts-v6.3.0';const ASSETS=['./','./index.html','./styles.css?v=63','./app.mjs?v=63','./domain.mjs?v=63','./art.mjs?v=63','./data/cards.json?v=63','./data/dimensions.json?v=63','./icon.svg','./manifest.webmanifest'];
-self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS))));
-self.addEventListener('message',e=>{if(e.data==='SKIP_WAITING')self.skipWaiting()});
-self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('between-hearts-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
-self.addEventListener('fetch',e=>{const u=new URL(e.request.url);if(e.request.method!=='GET'||u.origin!==self.location.origin||!u.pathname.startsWith(new URL(self.registration.scope).pathname))return;e.respondWith((async()=>{const c=await caches.open(CACHE);if(e.request.mode==='navigate')return await c.match('./index.html')||fetch(e.request);return await c.match(e.request)||fetch(e.request)})())});
+const CACHE='between-hearts-v6.3.1';
+const ASSETS=['./index.html','./styles.css?v=631','./app.mjs?v=631','./domain.mjs?v=631','./art.mjs?v=631','./data/cards.json?v=631','./data/dimensions.json?v=631','./icon.svg','./manifest.webmanifest'];
+self.addEventListener('install',e=>e.waitUntil((async()=>{const c=await caches.open(CACHE);await c.addAll(ASSETS.map(url=>new Request(new URL(url,self.registration.scope),{cache:'reload'})));await self.skipWaiting()})()));
+self.addEventListener('message',e=>{if(e.data==='SKIP_WAITING')e.waitUntil(self.skipWaiting())});
+self.addEventListener('activate',e=>e.waitUntil((async()=>{await self.clients.claim();const keys=await caches.keys();await Promise.all(keys.filter(k=>k.startsWith('between-hearts-')&&k!==CACHE).map(k=>caches.delete(k)))})()));
+self.addEventListener('fetch',e=>{const u=new URL(e.request.url);if(e.request.method!=='GET'||u.origin!==self.location.origin||!u.pathname.startsWith(new URL(self.registration.scope).pathname))return;e.respondWith((async()=>{const c=await caches.open(CACHE);if(e.request.mode==='navigate'){try{const res=await fetch(e.request,{cache:'no-store'});if(res.ok)return res}catch{}return await c.match('./index.html')||Response.error()}const hit=await c.match(e.request);return hit||fetch(e.request)})())});
