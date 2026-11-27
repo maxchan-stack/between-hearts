@@ -31,3 +31,38 @@ main{width:100%;max-width:32rem;margin:auto;min-height:100svh;padding:max(1rem,e
 @media(max-height:700px){header{padding-bottom:.75rem}section{gap:.625rem}.topic{min-height:3.9rem}.paper{gap:.75rem;min-height:28rem}.content{padding:.5rem 0}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 @media print{@page{size:A4;margin:7mm}body{background:white;color:#222}body>main,.flow{display:none!important}.print-only{display:block}.print-sheet{display:grid;grid-template-columns:repeat(3,65mm);grid-template-rows:repeat(2,100mm);break-after:page}.print-sheet:last-child{break-after:auto}.print-card{height:100mm;width:65mm;border:1px solid #aaa;padding:6mm;display:flex;flex-direction:column;justify-content:center;gap:4mm;text-align:center;break-inside:avoid;print-color-adjust:exact;-webkit-print-color-adjust:exact}.print-card h2{font-size:17pt;font-weight:400}.print-card p{font-size:11pt}.print-card small{font-size:9pt}}
+
+/* V6.3: cover zones. Footer stays in normal flow; no fixed overlap with Safari toolbar. */
+body{background:#faf4e9}.flow{background:linear-gradient(145deg,#fffaf2 5%,#f7eddb 62%,#f2ded1)}.flow i{background:radial-gradient(ellipse at 30% 35%,#fffdf6 0%,transparent 48%),radial-gradient(ellipse at 70% 75%,#e7ba9b55,transparent 50%)}
+main{min-height:100svh;min-height:100dvh}
+header{padding:.55rem 0 .75rem}
+#intro{justify-content:flex-start;gap:0}
+.cover-main{display:flex;flex-direction:column;justify-content:center;flex:1 0 auto;gap:.85rem;padding:.45rem 0 1rem}
+.cover-mantra{line-height:1.85}
+#intro .label{margin-top:.2rem}
+.topics{gap:.25rem .65rem;max-width:26rem;width:100%;margin-inline:auto}
+.topic{min-height:4.8rem;padding:.8rem .7rem}
+.topic::before{inset:0;opacity:.62;border-radius:0;-webkit-mask-image:var(--organic);mask-image:var(--organic);-webkit-mask-size:100% 100%;mask-size:100% 100%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat}
+.topic:nth-child(1){--organic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20165%20110%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20d%3D%22M19%2025C39%202%2080%209%20109%2016C143%2024%20163%2048%20138%2077C116%20104%2063%20103%2032%2088C2%2073%200%2048%2019%2025Z%22%2F%3E%3C%2Fsvg%3E")}
+.topic:nth-child(2){--organic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20165%20110%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20d%3D%22M19%2029C43%2014%2048%201%2085%2011C122%2018%20157%2019%20155%2052C153%2083%20114%2090%2084%2098C48%20108%2013%2087%209%2063C5%2051%204%2039%2019%2029Z%22%2F%3E%3C%2Fsvg%3E")}
+.topic:nth-child(3){--organic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20165%20110%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20d%3D%22M36%2010C67%200%20110%206%20137%2033C157%2054%20143%2091%20107%2099C67%20111%2022%2096%2013%2066C3%2036%2015%2017%2036%2010Z%22%2F%3E%3C%2Fsvg%3E")}
+.topic:nth-child(4){--organic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20165%20110%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20d%3D%22M20%2029C31%209%2062%200%2085%2015C112%200%20145%2016%20151%2040C168%2070%20138%2098%20106%2094C78%20110%2032%20102%2014%2077C0%2059%205%2043%2020%2029Z%22%2F%3E%3C%2Fsvg%3E")}
+.topic:nth-child(5){--organic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20165%20110%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20d%3D%22M18%2015C47%20-3%2075%2014%2098%2016C125%204%20151%2024%20151%2049C157%2079%20130%2090%20104%2094C68%20113%2034%2094%2018%2078C3%2062%20-2%2033%2018%2015Z%22%2F%3E%3C%2Fsvg%3E")}
+.topic:nth-child(6){--organic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20165%20110%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20d%3D%22M7%2065C8%2042%2033%2016%2053%2021C70%200%2095%200%20118%2019C136%2028%20155%2044%20153%2066C148%2096%20115%20101%2081%2094C45%20107%207%2093%207%2065Z%22%2F%3E%3C%2Fsvg%3E")}
+.topic[aria-pressed=true]::before{opacity:.95;box-shadow:none}
+.topic[aria-pressed=true]::after{top:.55rem;right:1rem}
+.topic[aria-pressed=true] span{font-weight:600}
+.all[aria-pressed=true]{background:#fff9ef77;box-shadow:inset 0 0 0 1px #95694c66}
+.cover-actions{display:flex;flex-direction:column;align-items:center;gap:.5rem;flex:none;margin-top:auto;padding-top:clamp(1.75rem,5vh,3.5rem);padding-bottom:.2rem}
+.cover-actions .primary{width:min(72%,19rem);min-height:3rem;background:#8d7059;color:#fffaf2;font-weight:500}
+.cover-actions .tools{width:100%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.15rem}
+.cover-actions .tools button{background:transparent;border:0;border-radius:8px;padding:.4rem .1rem;min-height:2.75rem;color:#695447;font-size:var(--small)}
+.cover-actions .tools button+button{position:relative}
+.cover-actions .tools button+button::before{content:"";position:absolute;left:0;top:28%;height:44%;width:1px;background:#b89d8266}
+.cover-info{width:100%;font-size:var(--xs);color:var(--muted)}
+.cover-info summary{cursor:pointer;min-height:2.75rem;display:flex;align-items:center;justify-content:center;gap:.35rem}
+.cover-info summary::after{content:"+"}.cover-info[open] summary::after{content:"−"}
+.cover-info .status,.cover-info .hint{font-size:var(--xs)}
+@media(max-height:700px){.cover-main{gap:.55rem;padding-bottom:.5rem}.topic{min-height:4.25rem}.cover-actions{padding-top:1.5rem;gap:.25rem}}
+@media(max-width:360px){.topic{padding:.65rem .4rem}.cover-actions .tools button{font-size:.8125rem}}
+@media print{.cover-actions{display:none!important}}

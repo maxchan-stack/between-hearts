@@ -9,3 +9,6 @@
 
 
 V6.2 cover: organic blobs using each dimension color; fixed two-column grid; pressed state uses check and inset outline; 44 CSS px minimum target. Intro mantra replaces large instruction heading.
+
+
+V6.3 cover: three zones, bottom actions in normal flow, minimum separation 28px (24px short height), 72% primary CTA, three quiet secondary actions, collapsible system details. Organic silhouette masks; light warm background. No fixed footer.
